@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
             coinSymbol.innerHTML = "Ticker/Symbol: " + element.symbol
             div.appendChild(coinSymbol);
             let price = document.createElement("h3")
-            price.innerHTML = "USD Price: " + element.priceUsd
+            price.innerHTML = "USD Price: " + parseFloat(element.priceUsd).toFixed(2)
             div.appendChild(price)
             let percentChange = document.createElement("h4")
             percentChange.innerHTML = "Approx % change in 24 Hours:" + Math.round(element.changePercent24Hr) 
@@ -72,6 +72,5 @@ document.addEventListener("DOMContentLoaded", () => {
                   e.target.innerText = "Bullish?" + EMPTY_HEART
                   }
             })
-
             div.appendChild(bullish)
        }
