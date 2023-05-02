@@ -14,7 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// e.forEach(element => {
        function createCard(element) {
             let div = document.createElement("div");
             div.className = "card";
@@ -32,12 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
             div.appendChild(percentChange)
             buildBullish(div);
             buildComments(div)
-            document.getElementById("toy-collection").appendChild(div)
+            document.getElementById("crypto-collection").appendChild(div)
        } 
 
 
        const EMPTY_HEART = '♡'
        const FULL_HEART = '♥'
+       
        function buildBullish(div){
             let bullish = document.createElement("h3")
             bullish.innerHTML = "Bullish?" + EMPTY_HEART
