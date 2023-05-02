@@ -4,13 +4,32 @@ document.addEventListener("DOMContentLoaded", () => {
         return resp.json();
     })
     .then(e => {
-       e.data.forEach(element => {
+        let dataArray = e.data.splice(0, 6)
+       dataArray.forEach(element => {
             createCard(element)
        });
-        
+         const button = document.getElementById("more-crypto-btn")
+         button.addEventListener('click', ()=>{
+            let indexNumber = 6
+            dataArray = e.data.splice(indexNumber, 6)
+            dataArray.forEach(element => {
+                createCard(element)
+            })
+            indexNumber += 6
+         })
       }
       )
     })
+        let indexNumber = 6
+        function loadMore (array){
+            
+            let newArray = array.splice(indexNumber, 6)
+            newArray.forEach(element => {
+                createCard(element)
+            })
+            indexNumber += 6
+            
+     }
 
 
 
