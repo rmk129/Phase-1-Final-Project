@@ -28,32 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
             price.innerHTML = "USD Price: " + parseFloat(element.priceUsd).toFixed(2)
             div.appendChild(price)
             let percentChange = document.createElement("h4")
-            percentChange.innerHTML = "Approx % change in 24 Hours:" + Math.round(element.changePercent24Hr) 
+            percentChange.innerHTML = "Approx % change in 24 Hours: " + Math.round(element.changePercent24Hr) + "%" 
             div.appendChild(percentChange)
             buildBullish(div);
-       
-        //   let bullish = document.createElement("p")
-        //   bullish.innerText = `${element.likes} likes`
-        //   div.appendChild(likes);
-        //   let likeButton = document.createElement("button")
-        //   likeButton.className = "like-btn"
-        //   likeButton.id = element.id;
-        //   likeButton.innerHTML = "Like &hearts;"
-        //   likeButton.addEventListener('click', function(e) {
-        //     let newlikes = element.likes++;
-        //     likes.innerText = `${newlikes} likes!`
-        //     fetch(`http://localhost:3000/toys/${element.id}`, {
-        //       method: 'PATCH',
-        //       headers: {
-        //         "Content-Type": "application/json",
-        //         Accept: "application/json"
-        //       },
-        //       body: JSON.stringify({
-        //         "likes": newlikes
-        //       })
-        //     })
-        //   })
-        //   div.appendChild(likeButton)
+            buildComments(div)
             document.getElementById("toy-collection").appendChild(div)
        } 
 
@@ -74,3 +52,31 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             div.appendChild(bullish)
        }
+
+function buildComments(div){
+    let form = document.createElement("form")
+    let label = document.createElement("label")
+    label.innerHTML = "Comments: "
+    form.appendChild(label)
+    let placeHolder = document.createElement("input")
+    placeHolder.type = "text"
+    placeHolder.id = "commentBox"
+    placeHolder.placeholder = "Price predictions?"
+    form.appendChild(placeHolder)
+    let submitBox = document.createElement("input")
+    submitBox.type = "submit"
+    submitBox.placeholder = "Comment Here..."
+    form.appendChild(submitBox)
+    let ul = document.createElement("ul")
+    form.appendChild(ul)
+    
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let li = document.createElement("li")
+        li.innerHTML = e.target.commentBox.value
+        ul.appendChild(li)
+        form.reset()
+    })
+    div.appendChild(form)
+
+}
