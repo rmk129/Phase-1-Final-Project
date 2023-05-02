@@ -93,6 +93,7 @@ function buildComments(div){
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         let li = document.createElement("li")
+        li.className = "comment-list"
         li.innerHTML = e.target.commentBox.value
         ul.appendChild(li)
         form.reset()
