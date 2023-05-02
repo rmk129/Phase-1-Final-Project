@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
             price.innerHTML = "USD Price: " + parseFloat(element.priceUsd).toFixed(2)
             div.appendChild(price)
             let percentChange = document.createElement("h4")
-            percentChange.innerHTML = "Approx % change in 24 Hours: " + Math.round(element.changePercent24Hr) + "%" 
+            percentChange.innerHTML = "Change in 24 Hours: " + Math.round(element.changePercent24Hr) + "%" 
             div.appendChild(percentChange)
             buildBullish(div);
             buildComments(div)
@@ -84,6 +84,7 @@ function buildComments(div){
     form.appendChild(placeHolder)
     let submitBox = document.createElement("input")
     submitBox.type = "submit"
+    submitBox.className = "submit"
     submitBox.placeholder = "Comment Here..."
     form.appendChild(submitBox)
     let ul = document.createElement("ul")
