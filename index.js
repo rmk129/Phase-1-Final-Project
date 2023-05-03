@@ -49,7 +49,8 @@ document.addEventListener("DOMContentLoaded", () => {
             percentChange.innerHTML = "Change in 24 Hours: " + Math.round(element.changePercent24Hr) + "%" 
             div.appendChild(percentChange)
             buildBullish(div);
-            buildComments(div)
+            buildComments(div);
+            buildMouseOver(div);
             document.getElementById("crypto-collection").appendChild(div)
        } 
 
@@ -100,4 +101,17 @@ function buildComments(div){
     })
     div.appendChild(form)
 
+}
+
+function buildMouseOver(div) {
+        div.addEventListener('mouseover', (e) => {
+            div.style.width = "20rem"
+            div.style.height = "25rem"
+            div.style.backgroundColor = "#7487f4"
+        })
+        div.addEventListener('mouseout', (e) => {
+            div.style.width = "15rem"
+            div.style.height = "20rem"
+            div.style.backgroundColor = "white"
+        })
 }
