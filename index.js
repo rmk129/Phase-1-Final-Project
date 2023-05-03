@@ -106,12 +106,13 @@ function buildComments(div){
 function buildMouseOver(div) {
         div.addEventListener('mouseover', (e) => {
             div.style.width = "20rem"
-            div.style.height = "25rem"
+            div.style.height = "30rem"
             div.style.backgroundColor = "#7487f4"
+            
         })
         div.addEventListener('mouseout', (e) => {
             div.style.width = "15rem"
-            div.style.height = "20rem"
+            div.style.height = "25rem"
             div.style.backgroundColor = "white"
         })
 }
