@@ -93,24 +93,24 @@ function buildComments(div){
         form.addEventListener('submit', (e) => {
             e.preventDefault();
             if (ul.childNodes.length > 3){
-            ul.childNodes[0].remove();
-            let li = document.createElement("li")
-            li.className = "comment-list"
-            li.innerHTML = e.target.commentBox.value
-            ul.appendChild(li)
-            form.reset()
+                ul.childNodes[0].remove();
+                createLi(ul, e)
+                form.reset()
             }
 
             else {
-                let li = document.createElement("li")
-            li.className = "comment-list"
-            li.innerHTML = e.target.commentBox.value
-            ul.appendChild(li)
-            form.reset()
+                createLi(ul, e)
+                form.reset()
             }
     })
         div.appendChild(form)
+}
 
+function createLi(ul, e) {
+    let li = document.createElement("li")
+    li.className = "comment-list"
+    li.innerHTML = e.target.commentBox.value
+    ul.appendChild(li)
 }
 
 function buildMouseOver(div) {
