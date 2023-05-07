@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return resp.json();
     })
     .then(e => {
+        searchCrypto(e.data)
         let dataArray = e.data.splice(0, 6)
         dataArray.forEach(element => {
             createCard(element)
@@ -106,6 +107,14 @@ function buildComments(div){
             }
     })
         div.appendChild(form)
+}
+
+function searchCrypto (array){
+    let form = document.getElementById("searchCrypto")
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        consolelog(e.target.cryptoInput.value)
+    })
 }
 
 function createLi(ul, e) {
