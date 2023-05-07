@@ -36,6 +36,7 @@ function createCard(element) {
         div.className = "card";
         let coinName = document.createElement("h2")
         coinName.innerHTML = element.name;
+        coinName.style.fontSize = "xx-large"
         div.appendChild(coinName);
         let coinSymbol = document.createElement('h2')
         coinSymbol.innerHTML = "Ticker/Symbol: " + element.symbol
@@ -46,6 +47,7 @@ function createCard(element) {
         let percentChange = document.createElement("h4")
         percentChange.innerHTML = "Change in 24 Hours: " + parseFloat(element.changePercent24Hr).toFixed(2) + "%" 
         div.appendChild(percentChange)
+
         buildBullish(div);
         buildComments(div);
         buildMouseOver(div);
