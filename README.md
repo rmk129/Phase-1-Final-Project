@@ -26,4 +26,5 @@ Load More:
 Initially, when the array of the cryptocurrencies' data is returned from the API, it is a large array and would create too many cards at once. To tackle this, the intial rendering splices the data array to just the first 6 crypto currencies. Once you click on the load more button at the bottom of the screen, a second splice occurs where the index starts at 6 and renders the next 6 cards. At the end of the event listener, the index is added by 6 to start the next splice at the index of 12 and for the enxt 6 cards after that, and so forth till all the cards are rendered. 
 
 RoadMap: 
+Moving forward, the main thing I want to work on is the CSS. The styling isn't the best but the functionality is there. To make it more professional, I need to work on designing and positioning the cards as well as the information better. 
 
