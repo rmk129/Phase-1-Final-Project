@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return resp.json();
     })
     .then(e => {
+        
         searchCrypto(e.data)
         let dataArray = e.data.splice(0, 6)
         dataArray.forEach(element => {
@@ -113,8 +114,12 @@ function searchCrypto (array){
     let form = document.getElementById("searchCrypto")
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        consolelog(e.target.cryptoInput.value)
+        let match = e.target.cryptoInput.value.toUpperCase();
+        console.log(array.find((element) => element[symbol] === match))
+        //console.log(found)
+        
     })
+
 }
 
 function createLi(ul, e) {
