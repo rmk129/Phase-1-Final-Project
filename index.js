@@ -6,31 +6,26 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(e => {
         console.log(e.data)
         searchCrypto(e.data)
-        let dataArray = e.data.splice(0, 6)
+        let dataArray = e.data.slice(0, 6)
         dataArray.forEach(element => {
             createCard(element)
        });
         const button = document.getElementById("more-crypto-btn")
         button.addEventListener('click', ()=>{
-            let indexNumber = 6
-            dataArray = e.data.splice(indexNumber, 6)
+            let indexNumber1 = 6
+            let indexNumber2 = 12
+
+            dataArray = e.data.slice(indexNumber1, indexNumber2)
             dataArray.forEach(element => {
                 createCard(element)
             })
-            indexNumber += 6
+            indexNumber1 += 6
+            indexNumber2 += 6
          })
       }
       )
     })
-        let indexNumber = 6
-        function loadMore (array){
-            
-            let newArray = array.splice(indexNumber, 6)
-            newArray.forEach(element => {
-                createCard(element)
-            })
-            indexNumber += 6            
-}
+
 
 
 function createCard(element) {
@@ -116,8 +111,12 @@ function searchCrypto (array){
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         let match = e.target.cryptoInput.value.toUpperCase();
-        array.find((element) => console.log(element.symbol, match) )
-        //console.log(found)
+        const newObj = array.find((element) => element.symbol === match) 
+        
+        if (newObj === undefined){
+            alert("There is no matching crypto");
+        }
+       
         
     })
 
