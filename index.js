@@ -10,10 +10,11 @@ document.addEventListener("DOMContentLoaded", () => {
         dataArray.forEach(element => {
             createCard(element)
        });
+        let indexNumber1 = 6
+        let indexNumber2 = 12
         const button = document.getElementById("more-crypto-btn")
         button.addEventListener('click', ()=>{
-            let indexNumber1 = 6
-            let indexNumber2 = 12
+            
 
             dataArray = e.data.slice(indexNumber1, indexNumber2)
             dataArray.forEach(element => {
