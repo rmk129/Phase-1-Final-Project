@@ -53,7 +53,7 @@ body {
     justify-self: center;
   }
 
-  #crypto-submit {
+  #crypto-submit, #reset-submit {
     position: relative;
     background-color: #3b56f2;
     border: none;

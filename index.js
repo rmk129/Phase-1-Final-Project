@@ -4,8 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
         return resp.json();
     })
     .then(e => {
-        console.log(e.data)
         searchCrypto(e.data)
+        resetCrypto(e.data)
         let dataArray = e.data.slice(0, 6)
         dataArray.forEach(element => {
             createCard(element)
@@ -106,7 +106,6 @@ function buildComments(div){
 }
 
 function searchCrypto (array){
-    console.log(array)
     let form = document.getElementById("searchCrypto")
     form.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -116,10 +115,27 @@ function searchCrypto (array){
         if (newObj === undefined){
             alert("There is no matching crypto");
         }
-       
-        
+        else {
+            let divCards = document.getElementById("crypto-collection")
+            divCards.replaceChildren()
+            createCard(newObj);
+            
+        }
     })
 
+}
+
+function resetCrypto(array) {
+    let reset = document.getElementById("reset-button")
+    console.log(reset)
+    reset.addEventListener('click', () => { 
+        let divCards = document.getElementById("crypto-collection")
+        divCards.replaceChildren()
+        let dataArray = array.slice(0, 6)
+        dataArray.forEach(element => {
+            createCard(element)
+        })  
+    })
 }
 
 function createLi(ul, e) {
